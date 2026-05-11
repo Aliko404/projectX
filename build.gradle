@@ -1,0 +1,45 @@
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
+
+    ext {
+        gdxVersion = "1.12.1"
+    }
+}
+
+project(":core") {
+    apply plugin: "java-library"
+
+    sourceSets {
+        main.java.srcDirs = ["src"]
+    }
+
+    dependencies {
+        implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+    }
+}
+
+project(":desktop") {
+    apply plugin: "java"
+    apply plugin: "application"
+
+    sourceSets {
+        main.java.srcDirs = ["src"]
+    }
+
+    dependencies {
+        implementation project(":core")
+        implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+        implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    }
+
+    application {
+        mainClass = "shooter.DesktopLauncher"
+    }
+
+    run {
+        workingDir = rootProject.file("assets")
+    }
+}
