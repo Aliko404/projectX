@@ -1,0 +1,40 @@
+# Gradle
+.gradle/
+build/
+*/build/
+
+# Compiled Java files
+*.class
+
+# Binary output folders
+bin/
+*/bin/
+
+# Generated files
+*.jar
+*.war
+*.ear
+
+# Gradle cache / temporary files
+.gradle/
+**/tmp/
+**/generated/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local config
+local.properties
+.env
